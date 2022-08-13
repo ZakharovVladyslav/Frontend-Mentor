@@ -269,7 +269,7 @@ footer button:hover {
     }
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 412px) {
     #skilled {
         font-size: 22px;
         margin-left: 30px;
@@ -319,6 +319,10 @@ footer button:hover {
     #mc-text {
         font-size: 20px;
         margin: 20px 15px 0 25px;
+    }
+
+    #c-get-started {
+        font-weight: 600;
     }
 
     footer p {
