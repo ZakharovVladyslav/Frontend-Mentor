@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+$white: #ffffff;
+$border-gradient: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+$red: hsl(0, 100%, 66%);
+
+$violets: ("light-grayish-violet": hsl(270, 3%, 87%), "dark-grayish-violet": hsl(279, 6%, 55%), "very-dark-violet": hsl(278, 68%, 11%));
+
+$font: "Space Grotesk", serif;
+$font-size: 18px;
+$font-weight: 500;
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+
+input {
+    max-height: 20px;
+}
+
+img {
+    height: 120%;
+    width: 150%;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+
+    .cards {
+        display: flex;
+        flex-direction: column;
+
+        .card-front {
+            height: 245px;
+            width: 447px;
+            margin: 200px 0 0 -100px;
+            float: left;
+            background: url(./assets/bg-card-front.png);
+            display: flex;
+
+            #circle-left {
+                height: 45px;
+                width: 60px;
+                background-color: #ffffff;
+                border-radius: 50%;
+                display: inline-block;
+                margin: 30px 0 0 30px;
+            }
+
+            #circle-right {
+                margin: 40px 0 0 20px;
+                border: 1px solid #ffffff;
+                height: 25px;
+                width: 35px;
+                border-radius: 50%;
+            }
+
+            #card-num {
+                color: $white;
+                font-size: 30px;
+                font-family: $font;
+                position: absolute;
+                margin: 130px 60px 0 50px;
+            }
+
+            .pers-info {
+                display: flex;
+                flex-direction: row;
+                align-self: flex-end;
+                justify-content: space-around;
+                width: 100%;
+
+                #card-name {
+                    font-size: $font-size;
+                    color: $white;
+                    font-family: $font;
+                    margin-left: -300px;
+                    margin-top: -30px;
+                    position: fixed;
+                }
+
+                .date{
+                    font-family: $font;
+                    font-size: $font-size;
+                    color: $white;
+                    margin-top: -30px;
+                    margin-right: -140px;
+                    position: fixed;
+                }
+            }
+        }
+
+        .card-back {    
+            width: 447px;
+            height: 245px;
+            background: url(./assets/bg-card-back.png);
+            margin-top: 40px;
+
+            #sec-code {
+                color: $white;
+                font-family: $font;
+                font-size: $font-size;
+                float: right;
+                margin-top: 110px;
+                margin-right: 50px; 
+            }
+        }
+    }
+
+    .input-fields {
+        margin: 400px 0 0 300px;
+
+        input[type="number"] {
+            height: 2em;
+        }
+
+        #label-name-input {
+            color: map-get($violets, "very-dark-violet");
+            font-family: $font;
+            font-size: 16px;
+            font-weight: $font-weight;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .name-inp {
+            width: 300px;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+
+        #label-number {
+            color: map-get($violets, "very-dark-violet");
+            font-family: $font;
+            font-size: 16px;
+            font-weight: $font-weight;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .num-inp {
+            width: 300px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        #label-expire {
+            color: map-get($violets, "very-dark-violet");
+            font-family: $font;
+            font-size: 16px;
+            font-weight: $font-weight;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .exp-inp-m {
+            margin-top: 10px;
+            width: 90px;
+            height: 90px;
+            margin-right: 7px;
+        }
+
+        .exp-inp-y {
+            margin-top: 10px;
+            width: 90px;
+            height: 90px;
+            margin-right: 7px;
+        }
+
+        #label-cvc {
+            margin-left: 75px;
+            margin-bottom: 10px;
+            color: map-get($violets, "very-dark-violet");
+            font-family: $font;
+            font-size: 16px;
+            font-weight: $font-weight;
+            text-transform: uppercase;
+        }
+
+        .cvc-inp {
+            width: 90px;
+            height: 90px;
+        }
+
+        input[type="submit"] {
+            width: 310px;
+            height: 70px;
+            margin-top: 40px;
+            background-color: map-get($violets, "very-dark-violet");
+            text-transform: uppercase;
+            color: $white;
+        }
+    }
+}
