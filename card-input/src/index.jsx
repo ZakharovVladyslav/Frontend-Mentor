@@ -6,12 +6,20 @@ import "./style.scss";
 
 import bg_main_desktop from './assets/bg-main-desktop.png';
 import bg_main_mobile from './assets/bg-main-mobile.png';
-import front_card from './assets/bg-card-front.png';
-//import back_card from './assets/bg-card-front.png';
+import icon_complete from './assets/icon-complete.png';
 
-function ThankYouPage() {
+function ThankYouPart({setIsSubmitted}) {
     return (
-        <p>Thank you</p>
+        <div className="ty">
+            <img src={icon_complete} alt="Complete" />
+            <h1>Thank You!</h1>
+            <p>We've added your card details</p>
+            <input 
+                type="submit"
+                value="Continue"
+                onClick={() => setIsSubmitted(false)}
+            />
+        </div>
     )
 }
 
@@ -27,6 +35,48 @@ function App() {
 
     const changePic = () => {
         return  window.innerWidth > 412 ? bg_main_desktop : bg_main_mobile;
+    }
+
+    const handleCardNumOutput = (e) => {
+        e.preventDefault();
+
+        if (e.target.value.length > e.target.maxLength) {
+            e.target.value = e.target.value.slice(0,e.target.maxLength);
+        }
+
+        setCardNum(e.target.value.toString().replace(/\d{4}(?=.)/g, '$& '))
+    }
+
+    const inputLimit = (e) => {
+        e.preventDefault();
+
+        if (e.target.value.length > e.target.maxLength) {
+            e.target.value = e.target.value.slice(0, e.target.maxLength);
+        }
+    }
+    
+    const handleMonthInput = (e) => {
+        e.preventDefault();
+
+        inputLimit(e);
+
+        setMonth(e.target.value);
+    }
+
+    const handleYearInput = (e) => {
+        e.preventDefault();
+
+        inputLimit(e);
+
+        setYear(e.target.value);
+    }
+
+    const handleCVCInput = (e) => {
+        e.preventDefault();
+
+        inputLimit(e);
+
+        setSecCode(e.target.value);
     }
 
     const rightBracket = String.fromCharCode(41);
@@ -48,7 +98,7 @@ function App() {
                     <p id='card-num'>{cardNum}</p>
                     <div className='pers-info'>
                         <p id='card-name'>{cardName}</p>
-                        <div class="date">
+                        <div className="date">
                             {month}/{year}
                         </div>
                     </div>
@@ -62,56 +112,65 @@ function App() {
             {!isSubmitted && (
             <section className='input-fields'>
                 <form className="form">
-                    <label id="label-name-input" for="name-inp">Cardholder Name</label>
+                    <label id="label-name-input" htmlFor="name-inp">Cardholder Name</label>
                     <br />
                     <input
-                        class="name-inp" 
+                        className="name-inp" 
                         type="text"
                         placeholder="e.g. Name Surname"
+                        maxLength={30}
                         onChange={ (e) => setCardName(e.target.value)}
                         required
                         />
 
                     <br />
 
-                    <label id="label-number" for="num-inp">Card Number</label>
+                    <label id="label-number" htmlFor="num-inp">Card Number</label>
                     <br />
                     <input
-                        class="num-inp"
+                        className="num-inp"
                         type="number"
-                        maxLength="16"
+                        maxLength={16}
                         placeholder='e.g. 1234 5678 9123 0000'
-                        onChange={ (e) => setCardNum(e.target.value)}
+                        pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}"
+                        onChange={handleCardNumOutput}
                         required
                     />
 
                     <br />
 
-                    <label id="label-expire" for="exp-inp-m">Exp. Date {leftBracket}MM/YY{rightBracket}</label>
-                    <label id="label-cvc" for="cvc-inp">CVC</label>
+                    <label id="label-expire" htmlFor="exp-inp-m">Exp. Date {leftBracket}MM/YY{rightBracket}</label>
+                    <label id="label-cvc" htmlFor="cvc-inp">CVC</label>
                     <br />
                     <input 
-                        class="exp-inp-m"
+                        className="exp-inp-m"
                         type="number"
+                        maxLength={2}
+                        min={1}
+                        max={12}
                         placeholder='MM'
-                        onChange={ (e) => setMonth(e.target.value)}
+                        onChange={handleMonthInput}
                         required
                     />
                     <input
-                        class="exp-inp-y"
+                        className="exp-inp-y"
                         type="number"
                         placeholder='YY'
-                        onChange={ (e) => setYear(e.target.value)}
+                        maxLength={2}
+                        min={0}
+                        max={99}
+                        onChange={handleYearInput}
                         required
                         />        
                             
                         <input    
-                        class="cvc-inp"
+                        className="cvc-inp"
                         type="number"   
                         min="100"
                         max="999"
+                        maxLength={3}
                         placeholder='e.g. 123'
-                        onChange={ (e) => setSecCode(e.target.value)}
+                        onChange={handleCVCInput}
                         required         
                         />
 
@@ -119,9 +178,14 @@ function App() {
                     <input 
                         type="submit"
                         value="Confirm"
+                        onClick={ () => setIsSubmitted(true) }
                     />
                 </form>
             </section>
+            )}
+
+            {isSubmitted && (
+                <ThankYouPart setIsSubmitted={setIsSubmitted} />
             )}
         </section>
     )
