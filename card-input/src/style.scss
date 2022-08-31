@@ -15,16 +15,10 @@ body {
     margin: 0;
 }
 
-
-input {
-    max-height: 20px;
-}
-
 img {
     height: 120%;
     width: 150%;
 }
-
 
 .container {
     display: flex;
@@ -116,9 +110,6 @@ img {
     .input-fields {
         margin: 300px 0 0 300px;
 
-        input {
-            max-height: 500px;
-        }
 
         input:focus {
             border-radius: 5px; 
