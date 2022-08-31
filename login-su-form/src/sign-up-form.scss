@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// styles
+
+$sign-up-background: hsl(28, 100%, 97%);
+$login-preview-bg: hsl(178, 71%, 13%);
+$input-color: hsl(28, 100%, 97%);
+
+$font: "Reem Kufi", serif;
+
+.login-preview {
+    width: 700px;
+    border-radius: 25px 0 0 25px;
+
+    background: linear-gradient(50deg, rgba(10, 58, 56, 0.9) 50%, rgb(14, 80, 78));
+
+    text-align: center;
+
+    h1 {
+        margin-top: 200px;
+
+        font-family: 'Reem Kufi';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        
+        color: white;
+    }
+
+    p {
+        max-width: 340px;
+        margin: auto;
+
+        font-family: 'Reem Kufi';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 33px;
+
+        color: white;
+    }
+
+    button {
+        width: 200px;
+        height: 50px;
+        margin-top: 40px;
+
+        background: #FFF8F2;
+        transition: background 0.3s ease;
+
+        border: 2px solid rgba(0, 0, 0, 0.7);
+        border-radius: 15px;
+
+        color: #000;
+        font-family: $font;
+        font-size: 20px;
+    }
+
+    button:hover {
+        cursor: pointer;
+
+        background: hsl(0, 0%, 79%);
+        transition: background 0.3s ease;
+    }
+}
+
+.sign-up-form {
+    width: 700px;
+    border-radius: 0 25px 25px 0;
+
+    background-color: $sign-up-background;
+    
+    text-align: center;
+    font-family: $font;
+    font-weight: 600;
+
+    h1 {
+        margin-top: 130px;
+        margin-bottom: 10px;
+
+        font-size: 42px;
+    }
+
+    img {
+        height: 50px;
+        width: 50px;
+
+        margin: 0 0 40px 20px;
+        padding-right: 20px;
+
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    img:nth-child(3) {
+        height: 52px;
+        width: 52px;
+        transform: translateY(3%);
+    }
+
+    img:hover {
+        cursor: pointer;
+
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    input[type="text"] {
+        margin-top: 10px;
+    }
+
+    input {
+        width: 340px;
+        height: 50px;
+        border: none;
+        margin-bottom: 15px;
+        padding-left: 15px;
+
+        background: rgba(10, 58, 56, 0.4);
+        border-radius: 10px;
+
+        border: 1px solid rgba(10, 58, 56, 0.4);
+        transition: border-left 0.2s ease;
+
+        color: $input-color;
+        
+        font-family: $font;
+        font-size: 16px;
+    }
+
+    input::placeholder {
+        color: $input-color;
+    }
+
+    input:hover {
+        border: none;
+        outline: none;
+        border: 1px solid rgba(10, 58, 56, 0.4);
+        border-left: 5px solid rgba(10, 58, 56, 0.4);
+        transition: border-left 0.2s ease;
+    }
+    
+    button {
+        width: 200px;
+        height: 50px;
+
+        background: rgb(10, 58, 56);
+        transition: background 0.2s ease;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+
+        color: $input-color;
+        font-family: $font;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    button:hover {
+        cursor: pointer;
+        background-color: rgba(10, 58, 56, 0.8);
+        transition: background-color 0.2s ease;
+        border-color: rgba(0, 0, 0, 0.3);
+    }
+}
