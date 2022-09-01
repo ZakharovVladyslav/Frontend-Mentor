@@ -4,7 +4,9 @@ import Twitter from './assets/twitter-sign.png';
 
 import "./sign-up-form.scss"
 
-export function SignUpForm({setChangeLoginOrSignup, setOnSignUpSuccessful}) {
+
+
+function SignUpForm({setChangeLoginOrSignup, setOnSignUpSuccessful}) {
     return (
         <>
             <section className="login-preview">
@@ -48,4 +50,10 @@ export function SignUpForm({setChangeLoginOrSignup, setOnSignUpSuccessful}) {
 
         </>
     )
+}
+
+export function MainSignUp({ setChangeLoginOrSignup }) {
+    const [signUpSuccessful, setOnSignUpSuccessful] = useState(false);
+    const []
+
 }

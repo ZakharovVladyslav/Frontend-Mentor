@@ -2,9 +2,41 @@ import Facebook from "./assets/facebook.png";
 import Instagram from './assets/instagram.png';
 import Twitter from './assets/twitter-sign.png';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark} from "@fortawesome/free-regular-svg-icons";
+
 import "./login-form.scss";
 
-export function LoginForm({setChangeLoginOrSignup, setOnLoginSuccessful}) {
+import { useState } from 'react';
+
+function LoginSuccessfullPage({ setLoginSuccessful, username }) {
+    return (
+        <>
+            <section className="card-l-successful">
+                <h1>Welcome back!</h1>
+                
+                <p>You have been successfuly logged in as {username} </p>
+
+                <div> </div>
+                <div> </div>
+                <div> </div>
+
+                <button onClick={() => setLoginSuccessful(false)}>
+                    <FontAwesomeIcon icon={faCircleXmark} />    
+                </button>
+            </section>
+        </>
+    )
+}
+
+function LoginForm({ setChangeLoginOrSignup, setLoginSuccessful, username, setUsername }) {
+
+    const handleSubmit = (event, username) => {
+        event.preventDefault();
+
+        setUsername(username);
+    }
+
     return (
         <>
             <section className="login-form">
@@ -14,13 +46,23 @@ export function LoginForm({setChangeLoginOrSignup, setOnLoginSuccessful}) {
                 <img src={Instagram} alt="Instagram" />
                 <img src={Twitter} alt="Twitter" />
 
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>Enter login and password below:</label>
 
                     <br />
-                    <input type="text" placeholder="Email"/>
+                    <input 
+                        type="text" 
+                        value={username}
+                        onChange={ (e) => setUsername(e.target.value)}
+                        placeholder="Email"
+                        required
+                    />
                     <br />
-                    <input type="number" placeholder="Password"/>
+                    <input 
+                        type="password"
+                        placeholder="Password"
+                        required
+                    />
                 </form>
 
                 <button className="forgot-pass">Forgot your password?</button>
@@ -28,7 +70,8 @@ export function LoginForm({setChangeLoginOrSignup, setOnLoginSuccessful}) {
                 <br />
                 <button
                     className="sign-in" 
-                    onClick={() => setOnLoginSuccessful(true)}>Sign in</button>
+                    onClick={() => setLoginSuccessful(true)}
+                    >Sign in</button>
             </section>
 
             <section className="sign-up-preview">
@@ -42,6 +85,27 @@ export function LoginForm({setChangeLoginOrSignup, setOnLoginSuccessful}) {
     )
 }
 
-export function LoginSuccessful({setOnLoginSuccessful}) {
+export function MainLogin({ setChangeLoginOrSignup }) {
+    const [loginSuccessfull, setLoginSuccessful] = useState(false);
+    const [username, setUsername] = useState("");
 
+    return (
+        <>
+            {!loginSuccessfull && (
+                <LoginForm 
+                    setChangeLoginOrSignup={setChangeLoginOrSignup} 
+                    setLoginSuccessful={setLoginSuccessful}
+                    username={username}
+                    setUsername={setUsername}
+                />
+            )}
+
+            {loginSuccessfull && (
+                <LoginSuccessfullPage 
+                    setLoginSuccessful={setLoginSuccessful}
+                    username={username}
+                />
+            )}
+        </>
+    )
 }
