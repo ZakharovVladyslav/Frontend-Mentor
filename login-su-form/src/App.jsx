@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 import { MainLogin } from './login-form';
-import { MainSignUp} from './sign-up-form';
+import { MainSignUp } from './sign-up-form';
 
 import "./App.scss";
 

@@ -8,7 +8,6 @@ $input-color: hsl(28, 100%, 97%);
 
 $font: "Reem Kufi", serif;
 
-// Login successful Page: 
 .card-l-successful {
     font-family: $font;
     font-weight: 600;
@@ -29,7 +28,6 @@ $font: "Reem Kufi", serif;
     }
 
     div:nth-child(3) {
-        
         overflow: hidden;
         
         width: 630px;
@@ -67,8 +65,8 @@ $font: "Reem Kufi", serif;
 
     button {
         position: absolute;
-        margin-top: -890px;
-        margin-left: 190px;
+        margin-top: -840px;
+        margin-right: -90px;
 
         opacity: 0.5;
         transition: opacity 0.3s ease;
@@ -173,6 +171,12 @@ $font: "Reem Kufi", serif;
         border-left: 5px solid rgba(10, 58, 56, 0.4);
     }
 
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
     .forgot-pass {
         background-color: $login-form-background;
         border: none;
@@ -211,6 +215,205 @@ $font: "Reem Kufi", serif;
 
         border-color: rgba(0, 0, 0, 0.3);
     }
+
+    
+}
+
+// Code recovery part
+.code-receive {
+    width: 500px;
+    height: 700px;
+    border-radius: 25px;
+
+    font-family: $font;
+    font-weight: 600;
+    background-color: $login-form-background;
+    text-align: center;
+
+    h1 {
+        font-size: 42px;
+    }
+
+    p {
+        max-width: 400px;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+
+    input {
+        width: 240px;
+        height: 40px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        background: rgba(10, 58, 56, 0.4);
+        border-radius: 10px;
+
+        border: 1px solid rgba(10, 58, 56, 0.5);
+
+        font-family: $font;
+        font-size: 18px;
+        color: $input-color;
+        text-align: center;
+
+        padding-left: 15px;
+        transition: border-left 0.2s ease;
+    }
+
+    input::placeholder {
+        color: $input-color;
+    }
+
+    form {
+        margin-bottom: 50px;
+    }
+
+    :nth-child(4) {
+        text-decoration: underline;
+        float: left;
+        margin-left: 40px;
+        margin-bottom: 0;
+        
+        border: none;
+        outline: none;
+
+        background-color: $login-form-background;
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    button[type="submit"]{
+        width: 150px;
+        height: 40px;
+        transform: translateX(-90%);
+        margin-top: 80px;
+
+        background: rgba(10, 58, 56, 0.8);
+        transition: background 0.2s ease;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+
+        color: $input-color;
+        font-family: $font;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+
+    }
+    
+    button {
+        cursor: pointer;
+    }
+}
+
+
+// password recovery page 
+.password-recovery {
+    width: 500px;
+    height: 700px;
+    border-radius: 25px;
+    
+    background-color: $login-form-background;
+    font-family: $font;
+    font-weight: 600;
+    text-align: center;
+
+    h1 {
+        font-size: 46px;
+    }
+    
+    p {
+        font-size: 20px;
+    }
+    
+    input {
+        width: 240px;
+        height: 40px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        
+        background: rgba(10, 58, 56, 0.4);
+        border-radius: 10px;
+        
+        border: 1px solid rgba(10, 58, 56, 0.5);
+        
+        font-family: $font;
+        font-size: 18px;
+        color: $input-color;
+        text-align: center;
+        
+        padding-left: 15px;
+        transition: border-left 0.2s ease;
+    }
+    
+    input::placeholder {
+        color: $input-color;
+    }
+
+    button[type="submit"]{
+        width: 150px;
+        height: 40px;
+        margin-top: 80px;
+
+        background: rgba(10, 58, 56, 0.8);
+        transition: background 0.2s ease;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+
+        color: $input-color;
+        font-family: $font;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+
+    }
+
+    button[type="submit"] {
+        cursor: pointer;
+    }
+}
+
+// sucessful recovery
+.succ-recovery {
+    width: 500px;
+    height: 700px;
+    border-radius: 25px;
+
+    background-color: $login-form-background;
+    font-family: $font;
+    font-weight: 600;
+    text-align: center;
+
+    h1 {
+        font-size: 36px;
+        margin-top: 100px;
+    }
+
+    button[type="submit"]{
+        width: 150px;
+        height: 40px;
+        margin-top: 80px;
+
+        background: rgba(10, 58, 56, 0.8);
+        transition: background 0.2s ease;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+
+        color: $input-color;
+        font-family: $font;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+
+    }
+    
+    button {
+        cursor: pointer;
+
+        background-color: rgba(10, 58, 56, 0.6);
+        transition: background-color 0.3s ease;
+    }
 }
 
 // Sign up page
@@ -223,32 +426,30 @@ $font: "Reem Kufi", serif;
     text-align: center;
 
     h1 {
-        width: 165px;
+        width: 200px;
         height: 155px;
-        margin: 160px 0 0 170px;
+        margin: 200px 0 0 170px;
 
         font-family: 'Reem Kufi';
         font-style: normal;
         font-weight: 600;
         font-size: 42px;
-        line-height: 155px;
 
-        letter-spacing: -0.015em;
-
+        
         color: #FFFFFF;
     }
-
+    
     p {
         width: 305px;
         height: 66px;
         margin: 0 0 0 100px;
-
+        
         font-family: 'Reem Kufi';
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
         line-height: 33px;
-
+        
         text-align: center;
         letter-spacing: -0.015em;
 
